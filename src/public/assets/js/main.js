@@ -8,9 +8,9 @@ $(document).ready(function () {
       url: "../../src/includes/hashGenerator.inc.php",
       method: "POST",
       data: data,
+      dataType: "json",
       success: function (response) {
-        let mResponse = JSON.parse(response);
-        let errors = mResponse.errors;
+        let errors = response.errors;
         if (errors.length > 0) {
           var sError = "";
 
@@ -20,11 +20,11 @@ $(document).ready(function () {
 
           alert(sError);
         } else {
-          $("#hash").val(mResponse.hash);
+          $("#hash").val(response.hash);
         }
       },
       error: function (xhr, status, error) {
-        alert(`An error has occured : ${error}`);
+        alert(`An error has occurred: ${error}`);
         console.error(error);
       },
     });
@@ -35,7 +35,7 @@ $(document).ready(function () {
     let password = $("#password").val();
 
     if (!password) {
-      alert("Please fill password input.");
+      alert("Please fill the password input.");
     } else {
       sendPassword(password);
     }
