@@ -2,8 +2,6 @@
 
 const PASSWORD_TEMPLATE = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
 
-
-
 function main()
 {
     $errors = [];
@@ -25,21 +23,18 @@ function main()
     return json_encode(["errors" => $errors, "hash" => $hash]);
 }
 
-
 function generateHash($password)
 {
-
     $hash = '';
     try {
         $sanitizedPassword = filter_var($password, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $hash = password_hash($sanitizedPassword, PASSWORD_BCRYPT);
     } catch (Exception $e) {
-        header("HTTP/1.1 500 Internal Server Error");
+        http_response_code(500);
         die();
     }
 
-    return htmlspecialchars($hash);
+    return htmlspecialchars($hash, ENT_QUOTES, 'UTF-8');
 }
-
 
 echo main();
