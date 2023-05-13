@@ -180,6 +180,11 @@ section h1 {
   transition: all 0.2s ease-in-out;
 }
 
+.form-input input[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .form-input input::placeholder {
   font-size: 14px;
 }

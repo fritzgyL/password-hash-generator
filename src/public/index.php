@@ -24,7 +24,7 @@
                     </textarea>
                 </div>
                 <div class="form-input">
-                    <input type="submit" id="submitButton" value="Generate Hash" />
+                    <input type="submit" id="submitButton" value="Generate Hash" disabled />
                 </div>
             </form>
         </section>

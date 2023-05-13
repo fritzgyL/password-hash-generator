@@ -12,7 +12,7 @@ function main()
     } else {
         $password = $_POST['password'];
         if (!preg_match(PASSWORD_TEMPLATE, $password)) {
-            $errors[] = 'The password does not meet the requirements';
+            $errors[] = 'The password does not meet the requirements.';
         }
     }
 
