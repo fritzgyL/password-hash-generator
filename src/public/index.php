@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-input">
                     <label for="hash">Result</label>
-                    <textarea id="hash" rows="5" cols="33" class="text-input" readonly>
+                    <textarea id="hash" rows="5" cols="33" class="text-input" readonly disabled>
                     </textarea>
                 </div>
                 <div class="form-input">
